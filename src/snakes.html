@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -48,7 +48,18 @@
         }
       }
 
-      //snake trail -  adding the tail logic.
+      trail.push({ x: px, y: py });
+      while (trail.length > tail) {
+        trail.shift();
+      }
+
+      if (ax == px && ay == py) {
+        tail++;
+        ax = Math.floor(Math.random() * tc);
+        ay = Math.floor(Math.random() * tc);
+      }
+      ctx.fillStyle = "red";
+      ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
     }
 
     //key event bindings.
